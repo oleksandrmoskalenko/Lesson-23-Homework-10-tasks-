@@ -114,7 +114,56 @@ $btn8.addEventListener('click', () => {
 })
 
 //Task 9
-$btn9.addEventListener('click', () => { })
+$btn9.addEventListener('click', () => {
+    let $h2 = document.createElement('h2'),
+        result = 0
+    $h2.style = "margin-top: 100px; text-align: center"
+    $h2.innerText = 'What is the name of president Lincoln?'
+    document.body.append($h2)
+    let $ul = document.createElement('ul'),
+        $li1 = document.createElement('li'),
+        $li2 = document.createElement('li'),
+        $li3 = document.createElement('li'),
+        $buttonNext = document.createElement('button')
+    $li1.innerHTML = `<input type="radio" id="option11">
+    <label for="option11">John</label>`
+    $li2.innerHTML = `<input type="radio" id="option12">
+    <label for="option12">Franklin</label>`
+    $li3.innerHTML = `<input type="radio" id="option13">
+    <label for="option13">Abraham</label>`
+    document.body.append($ul)
+    $ul.append($li1, $li2, $li3, $buttonNext)
+    $buttonNext.innerText = 'Next question'
+    $buttonNext.style = "width: 120px; height: 50px; font-size: 16px; text-transform: uppercase; margin: 15px;"
+    $buttonNext.addEventListener('click', () => {
+        if (document.getElementById("option13").checked) result += 2;
+        $h2.innerText = "Choose the year when Lincoln was killed:"
+        $li1.innerHTML = `<input type="radio" id="option21">
+    <label for="option21">1863</label>`
+        $li2.innerHTML = `<input type="radio" id="option22">
+    <label for="option22">1865</label>`
+        $li3.innerHTML = `<input type="radio" id="option23">
+    <label for="option23">1867</label>`
+        $buttonNext.addEventListener('click', () => {
+            if (document.getElementById("option22").checked) result += 2;
+            $h2.innerText = "Who was the president of the US before Lincoln?"
+            $li1.innerHTML = `<input type="radio" id="option31">
+    <label for="option31">Thomas L. Harris</label>`
+            $li2.innerHTML = `<input type="radio" id="option32">
+    <label for="option32">John Henry</label>`
+            $li3.innerHTML = `<input type="radio" id="option33">
+    <label for="option33">Andrew Johnson</label>`
+            $buttonNext.addEventListener('click', () => {
+                if (document.getElementById("option32").checked) result += 2;
+                $h2.innerText = ''
+                $ul.innerHTML = ''
+                alert('Your final score is ' + result + ' points');
+            })
+        })
+    })
+
+})
+
 
 //Task 10
 $btn10.addEventListener('click', () => {
